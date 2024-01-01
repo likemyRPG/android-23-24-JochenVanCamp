@@ -1,6 +1,5 @@
 package com.example.nameanalysis.data.model
 
-
 data class NationalityResponse(
     val name: String,
     val country: List<CountryProbability>
@@ -13,7 +12,7 @@ data class CountryProbability(
 
 data class GenderResponse(
     val name: String,
-    val gender: String,
+    val gender: String?,
     val probability: Double,
     val count: Int
 )

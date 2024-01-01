@@ -1,4 +1,4 @@
-package com.example.nameanalysis.ui
+package com.example.nameanalysis.ui.screens.optionmenuscreen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -16,7 +16,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 
 @Composable
-fun OptionMenu(navController: NavController, onGenderClick: () -> Unit, onNationalityClick: () -> Unit) {
+fun OptionMenu(
+    navController: NavController,
+    onGenderClick: () -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -33,23 +36,6 @@ fun OptionMenu(navController: NavController, onGenderClick: () -> Unit, onNation
         ) {
             Text(
                 text = "Gender",
-                style = TextStyle(
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White
-                )
-            )
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(
-            onClick = onNationalityClick,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-            colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary)
-        ) {
-            Text(
-                text = "Nationality",
                 style = TextStyle(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,

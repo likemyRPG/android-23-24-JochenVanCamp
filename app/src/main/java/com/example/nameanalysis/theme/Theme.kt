@@ -10,7 +10,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Define your app's color palette here
 private val DarkColorPalette = darkColors(
     primary = Color(0xFFBB86FC),
     primaryVariant = Color(0xFF3700B3),
@@ -30,17 +29,14 @@ private val LightColorPalette = lightColors(
     onSurface = Color(0xFF000000),
 )
 
-// Define your app's typography
 private val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
     )
-    // Add other text styles as needed
 )
 
-// Define your app's shapes
 private val Shapes = Shapes(
     small = RoundedCornerShape(4.dp),
     medium = RoundedCornerShape(4.dp),

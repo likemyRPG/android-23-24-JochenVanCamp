@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.navigation.compose.rememberNavController
-import com.example.nameanalysis.ui.AppNavHost
 import com.example.nameanalysis.theme.NameAnalysisTheme
 
 class MainActivity : ComponentActivity() {

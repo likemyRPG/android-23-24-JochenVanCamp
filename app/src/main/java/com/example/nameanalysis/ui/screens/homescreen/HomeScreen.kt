@@ -1,4 +1,4 @@
-package com.example.nameanalysis.ui
+package com.example.nameanalysis.ui.screens.homescreen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
