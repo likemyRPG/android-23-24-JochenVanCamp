@@ -1,8 +1,8 @@
 package com.example.nameanalysis.data.model
 
-import com.squareup.moshi.Json
 
-data class NationalizeResponse(
+data class NationalityResponse(
+    val name: String,
     val country: List<CountryProbability>
 )
 
@@ -11,7 +11,8 @@ data class CountryProbability(
     val probability: Double
 )
 
-data class GenderizeResponse(
+data class GenderResponse(
+    val name: String,
     val gender: String,
     val probability: Double,
     val count: Int
