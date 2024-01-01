@@ -1,62 +1,49 @@
 package com.example.nameanalysis.ui.screens.optionmenuscreen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
+import com.example.nameanalysis.ui.components.OptionButton
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun OptionMenu(
     navController: NavController,
-    onGenderClick: () -> Unit,
+    onGenderClick: () -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Button(
-            onClick = onGenderClick,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-            colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary)
-        ) {
-            Text(
-                text = "Gender",
-                style = TextStyle(
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White
-                )
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Options") },
+                backgroundColor = MaterialTheme.colors.primary
             )
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(
-            onClick = { navController.navigateUp() },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
+    ) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
         ) {
-            Text(
-                text = "Go Back",
-                style = TextStyle(
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                OptionButton("Gender Analysis", onGenderClick)
+                Spacer(modifier = Modifier.height(16.dp))
+                OptionButton("Go Back") { navController.navigateUp() }
+            }
         }
     }
 }
+
