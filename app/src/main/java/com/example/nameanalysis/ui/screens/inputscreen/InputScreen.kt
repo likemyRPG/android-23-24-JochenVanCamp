@@ -44,6 +44,7 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
     var errorMessage by remember { mutableStateOf<String?>(null) }
     val coroutineScope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
+    val maxNameLength = 20
 
     Scaffold(topBar = {
         TopAppBar(title = { Text("Name Analysis") }, navigationIcon = {
@@ -65,11 +66,15 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
                 OutlinedTextField(
                     value = text,
                     onValueChange = {
-                        text = it
-                        errorMessage = when {
-                            it.isBlank() -> "Please enter a name"
-                            it.contains(" ") -> "No spaces allowed"
-                            else -> null
+                        if (it.length <= maxNameLength) {
+                            text = it
+                            errorMessage = when {
+                                it.isBlank() -> "Please enter a name"
+                                it.contains(" ") -> "No spaces allowed"
+                                else -> null
+                            }
+                        } else {
+                            errorMessage = "Name too long (max 20 characters)"
                         }
                     },
                     label = { Text("Enter a Name") },
@@ -92,16 +97,22 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
 
                 Button(
                     onClick = {
-                        coroutineScope.launch {
-                            val genderResponse = viewModel.getGender(text)
-                            navController.navigate("genderResult/${genderResponse.name}/${genderResponse.gender}/${genderResponse.probability}/${genderResponse.count}")
+                        if (errorMessage == null) {
+                            coroutineScope.launch {
+                                val genderResponse = viewModel.getGender(text)
+                                val genderString = genderResponse.gender ?: "Unknown"
+                                val probabilityString = genderResponse.probability.toString()
+                                val countString = genderResponse.count.toString()
+
+                                navController.navigate("genderResult/${genderResponse.name}/$genderString/$probabilityString/$countString")
+                            }
                         }
                     },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(8.dp),
                     colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary),
-                    enabled = text.isNotBlank() && !text.contains(" ") && errorMessage == null
+                    enabled = text.isNotBlank() && !text.contains(" ") && errorMessage == null && text.length <= maxNameLength
                 ) {
                     Text(text = "Analyze Gender", fontWeight = FontWeight.Bold, fontSize = 18.sp)
                 }
