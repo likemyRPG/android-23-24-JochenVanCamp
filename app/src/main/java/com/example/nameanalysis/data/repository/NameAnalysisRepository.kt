@@ -3,22 +3,29 @@ package com.example.nameanalysis.data.repository
 import com.example.nameanalysis.data.database.AppDatabase
 import com.example.nameanalysis.data.database.GenderAnalysis
 import com.example.nameanalysis.data.model.GenderResponse
+import com.example.nameanalysis.data.network.ApiResponse
 import com.example.nameanalysis.data.network.RetrofitBuilder
+import com.example.nameanalysis.data.network.safeApiCall
 
-class NameAnalysisRepository(private val database: AppDatabase) {
-
+class NameAnalysisRepository(database: AppDatabase) {
     private val genderizeDao = database.genderAnalysisDao()
 
-    suspend fun getGender(name: String): GenderResponse {
+    suspend fun getGender(name: String): ApiResponse<GenderResponse> {
         val localData = genderizeDao.getGenderAnalysis(name)
-        return localData?.toResponse() ?: fetchAndStoreGender(name)
+        return localData?.let {
+            ApiResponse.Success(it.toResponse())
+        } ?: fetchAndStoreGender(name)
     }
 
-    private suspend fun fetchAndStoreGender(name: String): GenderResponse {
-        val response = RetrofitBuilder.genderizeService.getGender(name)
-        val entity = response.toEntity(name)
-        genderizeDao.insertGenderAnalysis(entity)
-        return response
+    private suspend fun fetchAndStoreGender(name: String): ApiResponse<GenderResponse> {
+        return when (val apiResult = safeApiCall { RetrofitBuilder.genderizeService.getGender(name) }) {
+            is ApiResponse.Success -> {
+                val response = apiResult.data
+                genderizeDao.insertGenderAnalysis(response.toEntity(name))
+                ApiResponse.Success(response)
+            }
+            is ApiResponse.Error -> apiResult
+        }
     }
 
     private fun GenderResponse.toEntity(name: String) = GenderAnalysis(

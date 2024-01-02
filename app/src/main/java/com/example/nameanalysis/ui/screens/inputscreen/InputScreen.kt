@@ -27,12 +27,14 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.asFlow
 import androidx.navigation.NavController
 import com.example.nameanalysis.ui.viewmodel.NameAnalysisViewModel
 import kotlinx.coroutines.launch
@@ -45,6 +47,10 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
     val coroutineScope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
     val maxNameLength = 20
+
+    val apiErrorMessage by viewModel.errorMessage.asFlow().collectAsState(initial = null)
+
+    val genderResponse by viewModel.genderResponse.asFlow().collectAsState(initial = null)
 
     Scaffold(topBar = {
         TopAppBar(title = { Text("Name Analysis") }, navigationIcon = {
@@ -93,18 +99,22 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
                     )
                 }
 
+                apiErrorMessage?.let {
+                    Text(
+                        it,
+                        color = MaterialTheme.colors.error,
+                        fontSize = 12.sp,
+                        modifier = Modifier.padding(top = 10.dp)
+                    )
+                }
+
                 Spacer(modifier = Modifier.height(20.dp))
 
                 Button(
                     onClick = {
                         if (errorMessage == null) {
                             coroutineScope.launch {
-                                val genderResponse = viewModel.getGender(text)
-                                val genderString = genderResponse.gender ?: "Unknown"
-                                val probabilityString = genderResponse.probability.toString()
-                                val countString = genderResponse.count.toString()
-
-                                navController.navigate("genderResult/${genderResponse.name}/$genderString/$probabilityString/$countString")
+                                viewModel.getGender(text)
                             }
                         }
                     },
@@ -118,5 +128,14 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
                 }
             }
         }
+    }
+
+    // Wanneer een nieuwe respons binnenkomt, navigeer naar de resultaatpagina
+    genderResponse?.let { response ->
+        val genderString = response.gender ?: "Unknown"
+        val probabilityString = response.probability.toString()
+        val countString = response.count.toString()
+        navController.navigate("genderResult/${response.name}/$genderString/$probabilityString/$countString")
+        viewModel.clearGenderResponse() // Reset de LiveData na navigatie
     }
 }
