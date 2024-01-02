@@ -100,4 +100,12 @@ dependencies {
     ksp("androidx.room:room-compiler:2.5.0")
     implementation("androidx.room:room-runtime:2.6.0")
     implementation("androidx.room:room-ktx:2.6.0")
+
+    // Mockitokotlin
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2")
 }
