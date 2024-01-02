@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
             NameAnalysisTheme {
                 Surface(color = MaterialTheme.colors.background) {
                     val navController = rememberNavController()
-                    AppNavHost(navController = navController)
+                    AppNavHost(navController = navController, context = this@MainActivity)
                 }
             }
         }

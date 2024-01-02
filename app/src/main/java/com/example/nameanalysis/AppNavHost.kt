@@ -1,5 +1,6 @@
 package com.example.nameanalysis
 
+import android.content.Context
 import com.example.nameanalysis.ui.viewmodel.NameAnalysisViewModelFactory
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -12,12 +13,14 @@ import com.example.nameanalysis.ui.screens.optionmenuscreen.OptionMenu
 import com.example.nameanalysis.ui.viewmodel.NameAnalysisViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
+import com.example.nameanalysis.data.database.AppDatabase
 import com.example.nameanalysis.data.repository.NameAnalysisRepository
 import com.example.nameanalysis.ui.screens.resultscreen.GenderResultScreen
 
 @Composable
-fun AppNavHost(navController: NavHostController) {
-    val repository = NameAnalysisRepository()
+fun AppNavHost(navController: NavHostController, context: Context) {
+    val database = AppDatabase.getDatabase(context)
+    val repository = NameAnalysisRepository(database)
     val viewModel: NameAnalysisViewModel = viewModel(factory = NameAnalysisViewModelFactory(repository))
 
     NavHost(navController, startDestination = NavRoutes.HOME) {
