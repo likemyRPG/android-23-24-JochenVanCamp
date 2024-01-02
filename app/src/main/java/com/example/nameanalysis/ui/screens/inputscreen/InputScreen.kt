@@ -2,6 +2,7 @@ package com.example.nameanalysis.ui.screens.inputscreen
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.mutableStateOf
@@ -17,6 +18,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -52,6 +54,8 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
 
     val genderResponse by viewModel.genderResponse.asFlow().collectAsState(initial = null)
 
+    val isLoading by viewModel.isLoading.asFlow().collectAsState(initial = false)
+
     Scaffold(topBar = {
         TopAppBar(title = { Text("Name Analysis") }, navigationIcon = {
             IconButton(onClick = { navController.navigateUp() }) {
@@ -62,69 +66,80 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
         Surface(
             modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
         ) {
-            Column(
-                modifier = Modifier
-                    .verticalScroll(scrollState)
-                    .padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                OutlinedTextField(
-                    value = text,
-                    onValueChange = {
-                        if (it.length <= maxNameLength) {
-                            text = it
-                            errorMessage = when {
-                                it.isBlank() -> "Please enter a name"
-                                it.contains(" ") -> "No spaces allowed"
-                                else -> null
-                            }
-                        } else {
-                            errorMessage = "Name too long (max 20 characters)"
-                        }
-                    },
-                    label = { Text("Enter a Name") },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    isError = errorMessage != null,
-                    singleLine = true
-                )
-                errorMessage?.let {
-                    Text(
-                        it,
-                        color = MaterialTheme.colors.error,
-                        fontSize = 12.sp,
-                        modifier = Modifier.padding(start = 10.dp, top = 2.dp)
-                    )
+            if (isLoading || genderResponse != null) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
                 }
-
-                apiErrorMessage?.let {
-                    Text(
-                        it,
-                        color = MaterialTheme.colors.error,
-                        fontSize = 12.sp,
-                        modifier = Modifier.padding(top = 10.dp)
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(20.dp))
-
-                Button(
-                    onClick = {
-                        if (errorMessage == null) {
-                            coroutineScope.launch {
-                                viewModel.getGender(text)
-                            }
-                        }
-                    },
+            }
+            else {
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary),
-                    enabled = text.isNotBlank() && !text.contains(" ") && errorMessage == null && text.length <= maxNameLength
+                        .verticalScroll(scrollState)
+                        .padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
                 ) {
-                    Text(text = "Analyze Gender", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                    OutlinedTextField(
+                        value = text,
+                        onValueChange = {
+                            if (it.length <= maxNameLength) {
+                                text = it
+                                errorMessage = when {
+                                    it.isBlank() -> "Please enter a name"
+                                    it.contains(" ") -> "No spaces allowed"
+                                    else -> null
+                                }
+                            } else {
+                                errorMessage = "Name too long (max 20 characters)"
+                            }
+                        },
+                        label = { Text("Enter a Name") },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp),
+                        isError = errorMessage != null,
+                        singleLine = true
+                    )
+                    errorMessage?.let {
+                        Text(
+                            it,
+                            color = MaterialTheme.colors.error,
+                            fontSize = 12.sp,
+                            modifier = Modifier.padding(start = 10.dp, top = 2.dp)
+                        )
+                    }
+
+                    apiErrorMessage?.let {
+                        Text(
+                            it,
+                            color = MaterialTheme.colors.error,
+                            fontSize = 12.sp,
+                            modifier = Modifier.padding(top = 10.dp)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    Button(
+                        onClick = {
+                            if (errorMessage == null) {
+                                coroutineScope.launch {
+                                    viewModel.getGender(text)
+                                }
+                            }
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp),
+                        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary),
+                        enabled = text.isNotBlank() && !text.contains(" ") && errorMessage == null && text.length <= maxNameLength
+                    ) {
+                        Text(
+                            text = "Analyze Gender",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp
+                        )
+                    }
                 }
             }
         }

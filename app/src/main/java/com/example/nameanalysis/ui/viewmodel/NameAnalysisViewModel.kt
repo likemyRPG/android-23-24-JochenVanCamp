@@ -16,11 +16,15 @@ class NameAnalysisViewModel(private val repository: NameAnalysisRepository) : Vi
     private val _genderResponse = MutableLiveData<GenderResponse?>()
     val genderResponse: MutableLiveData<GenderResponse?> = _genderResponse
 
+    private val _isLoading = MutableLiveData<Boolean>(false)
+    val isLoading: LiveData<Boolean> = _isLoading
+
     fun clearGenderResponse() {
         _genderResponse.value = null
     }
 
     fun getGender(name: String) {
+        _isLoading.value = true
         viewModelScope.launch {
             when (val response = repository.getGender(name)) {
                 is ApiResponse.Success -> {
@@ -31,6 +35,7 @@ class NameAnalysisViewModel(private val repository: NameAnalysisRepository) : Vi
                     _errorMessage.value = response.errorMessage
                 }
             }
+            _isLoading.value = false
         }
     }
 }
