@@ -7,10 +7,13 @@ import com.example.nameanalysis.data.network.ApiResponse
 import com.example.nameanalysis.data.network.RetrofitBuilder
 import com.example.nameanalysis.data.network.safeApiCall
 
-class NameAnalysisRepository(database: AppDatabase) {
+interface NameAnalysisRepository {
+    suspend fun getGender(name: String): ApiResponse<GenderResponse>
+}
+class NameAnalysisRepositoryImpl(database: AppDatabase) : NameAnalysisRepository {
     private val genderizeDao = database.genderAnalysisDao()
 
-    suspend fun getGender(name: String): ApiResponse<GenderResponse> {
+    override suspend fun getGender(name: String): ApiResponse<GenderResponse> {
         val localData = genderizeDao.getGenderAnalysis(name)
         return localData?.let {
             ApiResponse.Success(it.toResponse())
@@ -31,13 +34,6 @@ class NameAnalysisRepository(database: AppDatabase) {
     private fun GenderResponse.toEntity(name: String) = GenderAnalysis(
         name = name,
         gender = this.gender ?: "unknown",
-        probability = this.probability,
-        count = this.count
-    )
-
-    private fun GenderAnalysis.toResponse() = GenderResponse(
-        name = this.name,
-        gender = this.gender,
         probability = this.probability,
         count = this.count
     )
