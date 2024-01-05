@@ -14,6 +14,17 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.nameanalysis.ui.components.OptionButton
 
+/**
+ * A Composable function that creates an option menu screen.
+ *
+ * This screen provides a user interface with options for different functionalities in the application.
+ * It includes a top app bar with a title and options represented as buttons. Each button performs a specific
+ * action, like initiating a gender analysis or navigating back. The screen is built using the Scaffold layout
+ * for consistent theming and structure.
+ *
+ * @param navController The [NavController] used for navigating between screens.
+ * @param onGenderClick A lambda function to be invoked when the 'Gender Analysis' button is clicked.
+ */
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun OptionMenu(
@@ -22,6 +33,7 @@ fun OptionMenu(
 ) {
     Scaffold(
         topBar = {
+            // TopAppBar configuration
             TopAppBar(
                 title = { Text("Options") },
                 backgroundColor = MaterialTheme.colors.primary
@@ -33,6 +45,7 @@ fun OptionMenu(
             color = MaterialTheme.colors.background
         ) {
             Column(
+                // Column configuration and content
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp),

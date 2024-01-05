@@ -13,15 +13,33 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+/**
+ * A test suite for verifying navigation flows in the Name Analysis application.
+ *
+ * This class contains UI tests for the application using Jetpack Compose testing tools. It tests the navigation
+ * between different screens and verifies if the correct UI elements are displayed upon navigation. The tests
+ * use a TestNavHostController to simulate navigation events and observe UI changes.
+ */
 class NavigationTest {
 
+    /**
+     * Rule to set up a Compose testing environment.
+     *
+     * This rule provides a Compose testing context and allows for setting up and manipulating Compose UI content.
+     */
     @get:Rule
     val composeTestRule = createComposeRule()
     private lateinit var navController: TestNavHostController
 
+    /**
+     * Sets up the testing environment before each test.
+     *
+     * This method initializes the test navigation controller and sets the Compose content for testing.
+     */
     @Before
     fun setupAppNavHost() {
         composeTestRule.setContent {
+            // Initialization of TestNavHostController and AppNavHost
             val context = LocalContext.current
             val appContainer = AppDataContainer(context)
             navController = TestNavHostController(context)
@@ -31,15 +49,27 @@ class NavigationTest {
         }
     }
 
+    /**
+     * Verifies that the Home screen is displayed correctly.
+     *
+     * This test checks if the "Start" button is visible on the Home screen.
+     */
     @Test
     fun verifyHomeScreen() {
+        // UI assertions for the Home screen
         composeTestRule
             .onNodeWithText("Start")
             .assertIsDisplayed()
     }
 
+    /**
+     * Tests navigation from the Home screen to the Options menu.
+     *
+     * This test simulates a click on the "Start" button and verifies if the Options menu is displayed.
+     */
     @Test
     fun navigateToOptionMenu() {
+        // Navigation and UI assertions for the Options menu
         composeTestRule
             .onNodeWithText("Start")
             .performClick()
@@ -48,8 +78,14 @@ class NavigationTest {
             .assertIsDisplayed()
     }
 
+    /**
+     * Tests navigation from the Options menu to the Input screen.
+     *
+     * This test simulates navigation through the UI and verifies if the Input screen is displayed correctly.
+     */
     @Test
     fun navigateToInputScreen() {
+        // Navigation and UI assertions for the Input screen
         navigateToOptionMenu()
 
         composeTestRule
@@ -61,8 +97,15 @@ class NavigationTest {
             .assertIsDisplayed()
     }
 
+    /**
+     * Tests the navigation flow from the Input screen to the Result screen.
+     *
+     * This test enters a name in the Input screen, submits it for analysis, and verifies if the Result screen
+     * is displayed with the correct information.
+     */
     @Test
     fun inputScreenToResultScreenNavigation() {
+        // Navigation, input actions, and UI assertions for the Result screen
         navigateToInputScreen()
 
         val testName = "Alice"

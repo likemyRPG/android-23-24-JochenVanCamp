@@ -17,6 +17,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.graphics.Color
 
+/**
+ * A Composable function that creates the home screen of the application.
+ *
+ * This function defines the layout and UI elements of the home screen, including a centrally aligned button.
+ * The screen uses a Box layout with maximum size and padding. The button, labeled "Start", is designed with
+ * specific dimensions and styling, and triggers an action defined by the passed lambda function when clicked.
+ *
+ * @param onStartClick A lambda function to be invoked when the Start button is clicked.
+ *                     This function typically navigates the user to another screen or starts a process.
+ */
 @Composable
 fun HomeScreen(onStartClick: () -> Unit) {
     Box(

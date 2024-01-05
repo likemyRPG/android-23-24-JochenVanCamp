@@ -14,6 +14,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/**
+ * A Composable function that creates a card displaying gender information.
+ *
+ * This function creates a card UI element using Jetpack Compose. The card displays a label and its associated value.
+ * It is styled with rounded corners, a light gray background, and padding. The text elements inside the card
+ * are styled according to MaterialTheme and have different font sizes and weights.
+ *
+ * @param label The label text to display at the top of the card. Typically, this represents the category or type of information.
+ * @param value The value text to display below the label. This is the actual information or data corresponding to the label.
+ */
 @Composable
 fun GenderInfoCard(label: String, value: String) {
     Card(

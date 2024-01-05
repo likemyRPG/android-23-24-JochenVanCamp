@@ -1,0 +1,98 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.example.nameanalysis.data.database////PointingToDeclaration/app/com.example.nameanalysis.data.database/index.html
+$dokka.location:com.example.nameanalysis.data.database/AppDatabase.Companion///PointingToDeclaration/app/com.example.nameanalysis.data.database/-app-database/-companion/index.html
+$dokka.location:com.example.nameanalysis.data.database/AppDatabase.Companion/getDatabase/#android.content.Context/PointingToDeclaration/app/com.example.nameanalysis.data.database/-app-database/-companion/get-database.html
+$dokka.location:com.example.nameanalysis.data.database/AppDatabase///PointingToDeclaration/app/com.example.nameanalysis.data.database/-app-database/index.html
+$dokka.location:com.example.nameanalysis.data.database/AppDatabase/AppDatabase/#/PointingToDeclaration/app/com.example.nameanalysis.data.database/-app-database/-app-database.html
+$dokka.location:com.example.nameanalysis.data.database/AppDatabase/genderAnalysisDao/#/PointingToDeclaration/app/com.example.nameanalysis.data.database/-app-database/gender-analysis-dao.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysis///PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis/index.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysis/GenderAnalysis/#kotlin.String#kotlin.String?#kotlin.Double#kotlin.Int/PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis/-gender-analysis.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysis/count/#/PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis/count.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysis/gender/#/PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis/gender.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysis/name/#/PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis/name.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysis/probability/#/PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis/probability.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysis/toResponse/#/PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis/to-response.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysisDao///PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis-dao/index.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysisDao/getGenderAnalysis/#kotlin.String/PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis-dao/get-gender-analysis.html
+$dokka.location:com.example.nameanalysis.data.database/GenderAnalysisDao/insertGenderAnalysis/#com.example.nameanalysis.data.database.GenderAnalysis/PointingToDeclaration/app/com.example.nameanalysis.data.database/-gender-analysis-dao/insert-gender-analysis.html
+$dokka.location:com.example.nameanalysis.data.model////PointingToDeclaration/app/com.example.nameanalysis.data.model/index.html
+$dokka.location:com.example.nameanalysis.data.model/GenderResponse///PointingToDeclaration/app/com.example.nameanalysis.data.model/-gender-response/index.html
+$dokka.location:com.example.nameanalysis.data.model/GenderResponse/GenderResponse/#kotlin.String#kotlin.String?#kotlin.Double#kotlin.Int/PointingToDeclaration/app/com.example.nameanalysis.data.model/-gender-response/-gender-response.html
+$dokka.location:com.example.nameanalysis.data.model/GenderResponse/count/#/PointingToDeclaration/app/com.example.nameanalysis.data.model/-gender-response/count.html
+$dokka.location:com.example.nameanalysis.data.model/GenderResponse/gender/#/PointingToDeclaration/app/com.example.nameanalysis.data.model/-gender-response/gender.html
+$dokka.location:com.example.nameanalysis.data.model/GenderResponse/name/#/PointingToDeclaration/app/com.example.nameanalysis.data.model/-gender-response/name.html
+$dokka.location:com.example.nameanalysis.data.model/GenderResponse/probability/#/PointingToDeclaration/app/com.example.nameanalysis.data.model/-gender-response/probability.html
+$dokka.location:com.example.nameanalysis.data.network////PointingToDeclaration/app/com.example.nameanalysis.data.network/index.html
+$dokka.location:com.example.nameanalysis.data.network//safeApiCall/#kotlin.coroutines.SuspendFunction0[retrofit2.Response[TypeParam(bounds=[kotlin.Any])]]/PointingToDeclaration/app/com.example.nameanalysis.data.network/safe-api-call.html
+$dokka.location:com.example.nameanalysis.data.network/ApiResponse.Error///PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-response/-error/index.html
+$dokka.location:com.example.nameanalysis.data.network/ApiResponse.Error/Error/#kotlin.String#kotlin.Int?/PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-response/-error/-error.html
+$dokka.location:com.example.nameanalysis.data.network/ApiResponse.Error/errorCode/#/PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-response/-error/error-code.html
+$dokka.location:com.example.nameanalysis.data.network/ApiResponse.Error/errorMessage/#/PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-response/-error/error-message.html
+$dokka.location:com.example.nameanalysis.data.network/ApiResponse.Success///PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-response/-success/index.html
+$dokka.location:com.example.nameanalysis.data.network/ApiResponse.Success/Success/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-response/-success/-success.html
+$dokka.location:com.example.nameanalysis.data.network/ApiResponse.Success/data/#/PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-response/-success/data.html
+$dokka.location:com.example.nameanalysis.data.network/ApiResponse///PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-response/index.html
+$dokka.location:com.example.nameanalysis.data.network/ApiService///PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-service/index.html
+$dokka.location:com.example.nameanalysis.data.network/ApiService/getGender/#kotlin.String/PointingToDeclaration/app/com.example.nameanalysis.data.network/-api-service/get-gender.html
+$dokka.location:com.example.nameanalysis.data.network/RetrofitBuilder///PointingToDeclaration/app/com.example.nameanalysis.data.network/-retrofit-builder/index.html
+$dokka.location:com.example.nameanalysis.data.network/RetrofitBuilder/genderizeService/#/PointingToDeclaration/app/com.example.nameanalysis.data.network/-retrofit-builder/genderize-service.html
+$dokka.location:com.example.nameanalysis.data.repository////PointingToDeclaration/app/com.example.nameanalysis.data.repository/index.html
+$dokka.location:com.example.nameanalysis.data.repository/NameAnalysisRepository///PointingToDeclaration/app/com.example.nameanalysis.data.repository/-name-analysis-repository/index.html
+$dokka.location:com.example.nameanalysis.data.repository/NameAnalysisRepository/getGender/#kotlin.String/PointingToDeclaration/app/com.example.nameanalysis.data.repository/-name-analysis-repository/get-gender.html
+$dokka.location:com.example.nameanalysis.data.repository/NameAnalysisRepositoryImpl///PointingToDeclaration/app/com.example.nameanalysis.data.repository/-name-analysis-repository-impl/index.html
+$dokka.location:com.example.nameanalysis.data.repository/NameAnalysisRepositoryImpl/NameAnalysisRepositoryImpl/#com.example.nameanalysis.data.database.AppDatabase/PointingToDeclaration/app/com.example.nameanalysis.data.repository/-name-analysis-repository-impl/-name-analysis-repository-impl.html
+$dokka.location:com.example.nameanalysis.data.repository/NameAnalysisRepositoryImpl/getGender/#kotlin.String/PointingToDeclaration/app/com.example.nameanalysis.data.repository/-name-analysis-repository-impl/get-gender.html
+$dokka.location:com.example.nameanalysis.data////PointingToDeclaration/app/com.example.nameanalysis.data/index.html
+$dokka.location:com.example.nameanalysis.data/AppContainer///PointingToDeclaration/app/com.example.nameanalysis.data/-app-container/index.html
+$dokka.location:com.example.nameanalysis.data/AppContainer/nameAnalysisRepository/#/PointingToDeclaration/app/com.example.nameanalysis.data/-app-container/name-analysis-repository.html
+$dokka.location:com.example.nameanalysis.data/AppDataContainer///PointingToDeclaration/app/com.example.nameanalysis.data/-app-data-container/index.html
+$dokka.location:com.example.nameanalysis.data/AppDataContainer/AppDataContainer/#android.content.Context/PointingToDeclaration/app/com.example.nameanalysis.data/-app-data-container/-app-data-container.html
+$dokka.location:com.example.nameanalysis.data/AppDataContainer/nameAnalysisRepository/#/PointingToDeclaration/app/com.example.nameanalysis.data/-app-data-container/name-analysis-repository.html
+$dokka.location:com.example.nameanalysis.theme////PointingToDeclaration/app/com.example.nameanalysis.theme/index.html
+$dokka.location:com.example.nameanalysis.theme//NameAnalysisTheme/#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.example.nameanalysis.theme/-name-analysis-theme.html
+$dokka.location:com.example.nameanalysis.ui.components////PointingToDeclaration/app/com.example.nameanalysis.ui.components/index.html
+$dokka.location:com.example.nameanalysis.ui.components//GenderInfoCard/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.nameanalysis.ui.components/-gender-info-card.html
+$dokka.location:com.example.nameanalysis.ui.components//OptionButton/#kotlin.String#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.example.nameanalysis.ui.components/-option-button.html
+$dokka.location:com.example.nameanalysis.ui.screens.homescreen////PointingToDeclaration/app/com.example.nameanalysis.ui.screens.homescreen/index.html
+$dokka.location:com.example.nameanalysis.ui.screens.homescreen//HomeScreen/#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.example.nameanalysis.ui.screens.homescreen/-home-screen.html
+$dokka.location:com.example.nameanalysis.ui.screens.inputscreen////PointingToDeclaration/app/com.example.nameanalysis.ui.screens.inputscreen/index.html
+$dokka.location:com.example.nameanalysis.ui.screens.inputscreen//InputScreen/#com.example.nameanalysis.ui.viewmodel.NameAnalysisViewModel#androidx.navigation.NavController/PointingToDeclaration/app/com.example.nameanalysis.ui.screens.inputscreen/-input-screen.html
+$dokka.location:com.example.nameanalysis.ui.screens.optionmenuscreen////PointingToDeclaration/app/com.example.nameanalysis.ui.screens.optionmenuscreen/index.html
+$dokka.location:com.example.nameanalysis.ui.screens.optionmenuscreen//OptionMenu/#androidx.navigation.NavController#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.example.nameanalysis.ui.screens.optionmenuscreen/-option-menu.html
+$dokka.location:com.example.nameanalysis.ui.screens.resultscreen////PointingToDeclaration/app/com.example.nameanalysis.ui.screens.resultscreen/index.html
+$dokka.location:com.example.nameanalysis.ui.screens.resultscreen//GenderResultScreen/#androidx.navigation.NavController#kotlin.String#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.nameanalysis.ui.screens.resultscreen/-gender-result-screen.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel////PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/index.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModel///PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model/index.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModel/NameAnalysisViewModel/#com.example.nameanalysis.data.repository.NameAnalysisRepository/PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model/-name-analysis-view-model.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModel/clearGenderResponse/#/PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model/clear-gender-response.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModel/errorMessage/#/PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model/error-message.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModel/genderResponse/#/PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model/gender-response.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModel/getGender/#kotlin.String/PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model/get-gender.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModel/isLoading/#/PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model/is-loading.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModelFactory///PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model-factory/index.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModelFactory/NameAnalysisViewModelFactory/#com.example.nameanalysis.data.repository.NameAnalysisRepository/PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model-factory/-name-analysis-view-model-factory.html
+$dokka.location:com.example.nameanalysis.ui.viewmodel/NameAnalysisViewModelFactory/create/#java.lang.Class[TypeParam(bounds=[androidx.lifecycle.ViewModel])]/PointingToDeclaration/app/com.example.nameanalysis.ui.viewmodel/-name-analysis-view-model-factory/create.html
+$dokka.location:com.example.nameanalysis////PointingToDeclaration/app/com.example.nameanalysis/index.html
+$dokka.location:com.example.nameanalysis//AppNavHost/#androidx.navigation.NavHostController#com.example.nameanalysis.data.AppContainer/PointingToDeclaration/app/com.example.nameanalysis/-app-nav-host.html
+$dokka.location:com.example.nameanalysis/MainActivity///PointingToDeclaration/app/com.example.nameanalysis/-main-activity/index.html
+$dokka.location:com.example.nameanalysis/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.nameanalysis/-main-activity/-main-activity.html
+$dokka.location:com.example.nameanalysis/NavRoutes///PointingToDeclaration/app/com.example.nameanalysis/-nav-routes/index.html
+$dokka.location:com.example.nameanalysis/NavRoutes/GENDER_RESULT/#/PointingToDeclaration/app/com.example.nameanalysis/-nav-routes/-g-e-n-d-e-r_-r-e-s-u-l-t.html
+$dokka.location:com.example.nameanalysis/NavRoutes/HOME/#/PointingToDeclaration/app/com.example.nameanalysis/-nav-routes/-h-o-m-e.html
+$dokka.location:com.example.nameanalysis/NavRoutes/INPUT/#/PointingToDeclaration/app/com.example.nameanalysis/-nav-routes/-i-n-p-u-t.html
+$dokka.location:com.example.nameanalysis/NavRoutes/OPTIONS/#/PointingToDeclaration/app/com.example.nameanalysis/-nav-routes/-o-p-t-i-o-n-s.html
+com.example.nameanalysis
+com.example.nameanalysis.data
+com.example.nameanalysis.data.database
+com.example.nameanalysis.data.model
+com.example.nameanalysis.data.network
+com.example.nameanalysis.data.repository
+com.example.nameanalysis.theme
+com.example.nameanalysis.ui.components
+com.example.nameanalysis.ui.screens.homescreen
+com.example.nameanalysis.ui.screens.inputscreen
+com.example.nameanalysis.ui.screens.optionmenuscreen
+com.example.nameanalysis.ui.screens.resultscreen
+com.example.nameanalysis.ui.viewmodel
+

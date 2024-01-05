@@ -41,6 +41,16 @@ import androidx.navigation.NavController
 import com.example.nameanalysis.ui.viewmodel.NameAnalysisViewModel
 import kotlinx.coroutines.launch
 
+/**
+ * A Composable function that creates the input screen for the name analysis application.
+ *
+ * This screen includes a text field for entering a name, a button for submitting the name for analysis,
+ * and displays a loading indicator or error messages as needed. It also handles navigation to the results
+ * screen once the analysis is complete.
+ *
+ * @param viewModel The [NameAnalysisViewModel] that provides the business logic and data for this screen.
+ * @param navController The [NavController] used for navigating between screens.
+ */
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) {
@@ -56,7 +66,9 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
 
     val isLoading by viewModel.isLoading.asFlow().collectAsState(initial = false)
 
-    Scaffold(topBar = {
+    Scaffold(topBar =
+    {
+        // TopAppBar with a back navigation icon
         TopAppBar(title = { Text("Name Analysis") }, navigationIcon = {
             IconButton(onClick = { navController.navigateUp() }) {
                 Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
@@ -67,11 +79,13 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
             modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
         ) {
             if (isLoading || genderResponse != null) {
+                // Show CircularProgressIndicator while loading or when genderResponse is available
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator()
                 }
             }
             else {
+                // Input form for name analysis
                 Column(
                     modifier = Modifier
                         .verticalScroll(scrollState)
@@ -145,7 +159,7 @@ fun InputScreen(viewModel: NameAnalysisViewModel, navController: NavController) 
         }
     }
 
-    // Wanneer een nieuwe respons binnenkomt, navigeer naar de resultaatpagina
+    // Logic for navigating to the result screen when gender analysis response is received
     genderResponse?.let { response ->
         val genderString = response.gender ?: "Unknown"
         val probabilityString = response.probability.toString()

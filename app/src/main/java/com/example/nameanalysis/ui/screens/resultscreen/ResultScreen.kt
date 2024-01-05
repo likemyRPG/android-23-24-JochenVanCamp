@@ -22,12 +22,27 @@ import androidx.navigation.NavController
 import com.example.nameanalysis.ui.components.GenderInfoCard
 import java.util.Locale
 
+/**
+ * A Composable function that creates the result screen for the gender analysis.
+ *
+ * This screen displays the results of the gender analysis including the name analyzed, the predicted gender,
+ * the probability of the prediction, and the count of data points used. It uses a Scaffold layout for consistent
+ * theming and a TopAppBar with a back navigation icon. The results are displayed using the GenderInfoCard components
+ * for a structured and visually appealing layout.
+ *
+ * @param navController The [NavController] used for navigation within the application.
+ * @param name The name that was analyzed.
+ * @param gender The gender result from the analysis.
+ * @param probability The probability score of the gender prediction, displayed as a percentage.
+ * @param count The number of occurrences analyzed to predict the gender.
+ */
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun GenderResultScreen(
     navController: NavController, name: String, gender: String, probability: String, count: String
 ) {
     Scaffold(topBar = {
+        // TopAppBar configuration with a back navigation icon
         TopAppBar(title = { Text("Gender Analysis Result") }, navigationIcon = {
             IconButton(onClick = { navController.navigateUp() }) {
                 Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
@@ -37,6 +52,7 @@ fun GenderResultScreen(
         Surface(
             modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
         ) {
+            // Content layout using Column and GenderInfoCard components
             val scrollState = rememberScrollState()
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
