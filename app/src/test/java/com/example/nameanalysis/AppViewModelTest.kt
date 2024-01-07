@@ -1,5 +1,6 @@
 package com.example.nameanalysis
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.nameanalysis.data.model.GenderResponse
 import com.example.nameanalysis.data.network.ApiResponse
 import com.example.nameanalysis.data.repository.NameAnalysisRepository
@@ -33,6 +34,9 @@ class AppViewModelTest {
      */
     @get:Rule
     val testDispatcher = TestDispatcherRule()
+
+    @get:Rule
+    val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     /**
      * Mock of [NameAnalysisRepository] to simulate data fetching without actual network calls.
